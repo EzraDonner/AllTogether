@@ -17,7 +17,7 @@ const verifyToken = (req, res, next) => {
     return res.status(400).json("no auth headers present");
   }
   console.log(authHeaders);
-  const token = authHeaders.split(' ')[1];
+  const token = authHeaders.split(" ")[1];
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Unauthorized" });
@@ -97,9 +97,13 @@ app.post("/api/users/login", async (req, res, next) => {
   } catch (error) {}
 });
 
-app.post("/api/users/aboutMe", verifyToken, async (req, res, next) => {
+app.get("/api/users/aboutMe", verifyToken, async (req, res, next) => {
   console.log(req.user);
-  res.status(201).json({firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email})
+  res.status(201).json({
+    firstName: req.user.firstName,
+    lastName: req.user.lastName,
+    email: req.user.email,
+  });
 });
 
 module.exports = router;
