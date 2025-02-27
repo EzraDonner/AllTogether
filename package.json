@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.4.1",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.4.1"
+  },
+  "name": "alltogether",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prisma": {
+    "seed": "node seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
